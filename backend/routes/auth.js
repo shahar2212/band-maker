@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 const { User } = require('../models/user');
 const express = require('express');
 const router = express.Router();
@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
     if (!user) return res.status(400).send('Invalid email or password.');
 
     //checks if the password input is the same with the db, if not sends error
-    const validPassword = await bcrypt.compare(req.body.password, user.password);
+    //const validPassword = await bcrypt.compare(req.body.password, user.password);
     if (!validPassword) return res.status(400).send('Invalid email or password.')
 
     //reaches this line only if none of the above error occurred
