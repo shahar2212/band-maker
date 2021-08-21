@@ -1,0 +1,15 @@
+#background-image-join{
+    float : left;
+    max-width: 50%;
+    height: 939px;
+    border-top-right-radius: 300px 100%;
+    border-bottom-right-radius: 100px 100%;
+    padding-top: 86px;
+
+}
+
+@media (max-width:768px){
+    #background-image-join{
+        display: none;
+    }
+}
