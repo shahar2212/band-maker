@@ -2,7 +2,7 @@ const express = require('express');
 const { valid } = require('joi');
 const router = express.Router();
 const { User, validate } = require('../models/user.js');
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 const _ = require('lodash');
 const auth = require('../middleware/auth');
 ///////////////////////////////////////////
@@ -24,8 +24,8 @@ router.post('/', async (req, res) => {
 
     //encrypting the password with bcrypt, and sending back the other harmless user details. 
     user = new User(req.body);
-    const salt = await bcrypt.genSalt(10); //salt stands for the key that we use to verify the password
-    user.password = await bcrypt.hash(user.password, salt);
+    //const salt = await bcrypt.genSalt(10); //salt stands for the key that we use to verify the password
+    //user.password = await bcrypt.hash(user.password, salt);
     await user.save();
     res.send(_.pick(user, ['_id', 'name', 'email', 'firstInstrument', 'secondInstrument',]));
 
